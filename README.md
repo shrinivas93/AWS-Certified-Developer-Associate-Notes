@@ -80,8 +80,16 @@
     - Public IP
       - Accessible to internet
       - Changes after instance restart
-    - Private IP - Accessible inside private network
-    - Elastic IP
+    - Private IP
+      - Accessible inside private network
+      - Retained across instance restart
+    - Elastic IP (Billed)
       - AWS IP to retain across EC2 instance restart
       - Can Mask failure by remaaping Elastic IP to differnt instances
-  
+  - EC2 User Data
+    - Run script only once on the instance first start
+    - Can do ANYTHING (More you do, startup time increases)
+    - User Data Script runs with ROOT user
+    - Add User Data Script while creating EC2 instance under Advanced Details on 'Configure Instance Details' page
+  - EC2 Launch Types
+    - 
