@@ -1,4 +1,23 @@
 # AWS Certified Developer Associate Notes
 - Regions & Availability Zones
   - Region > Availability Zone (AZ)
-- IAM
+- IAM (Identity & Access Management)
+  - Users
+    - Assigned to people
+  - Groups
+    - group of people by Function, Team, etc.
+  - Roles
+    - Assigned to machines or application (internal use)
+  - IAM policies written in JSON
+  - MFA (Multi Factor Authentication) can be setup
+  - IAM has predefined policies
+  - IAM Federation
+    - To enable AWS login using enterprise credentials
+  - Never share or write IAM credentials in code
+  - Never use ROOT account
+  - Complete seurity checks to secure the account
+    - Delete root access keys
+    - Activate MFA for root account (Google Authenticator)
+    - Create individual IAM users
+    - Use groups to assign permissions
+    - Apply IAM password policy
