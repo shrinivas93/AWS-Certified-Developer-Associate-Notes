@@ -182,8 +182,8 @@
         - Unlimited credits for high cost
     - EC2 Checklist
       - SSH to EC2
-      - .pem to .ppk
-      - change permission of .pem
+      - .pem to .ppk (PuTTY)
+      - change permission of .pem (0400 on Linux)
       - use security group properly
       - public vs private vs elastic IP
       - User Data Scripts to customize instance
