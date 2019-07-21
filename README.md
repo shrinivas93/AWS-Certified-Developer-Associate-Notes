@@ -19,5 +19,69 @@
     - Delete root access keys
     - Activate MFA for root account (Google Authenticator)
     - Create individual IAM users
+      - Create own user with Administrator Access policy
     - Use groups to assign permissions
+      - Create 'Admin' group
+      - Assign Administrator Access policy to it.
+      - Add own user to this group.
+      - Detach individually assign Administrator Access policy to own user. 
     - Apply IAM password policy
+      - At least 1 upper-case
+      - At least 1 lower-case
+      - At least 1 number
+      - At least 1 non-alphanumeric
+      - Allow users to change their password
+      - enable password expiration with expiration duration
+      - prevent password reuse out of previous x paswords
+      - password expiration resquires administrator reset
+  - Access account using IAM Admin user, not the root user
+- EC2
+  - Capabilities
+    - Renting VMs (EC2)
+    - Storing data on virtual drives (EBS)
+    - Distributing load across machines (ELB)
+    - Scaling services using auto-scaling group (ASG)
+  - Launch EC2 instance
+    - Choose AMI (Amazon Machine Image)
+    - Choose Instance type (t2.micro)
+    - Configure instance details
+      - No. of instances (For ASG)
+      - Choose VPC
+      - Choose Subnet
+      - Assign Public IP
+      - Select Placement Group
+      - Select Capacity Reservation
+      - Choose IAM Role
+      - Set Shutdown behaviour
+      - Enable termination protection
+      - Enable Cloudwatch monitoring
+      - Decide Tenancy
+    - Add Storage
+    - Set Tags
+    - Configure Security Groups
+      - Decide ports and IPs to allow access
+    - Review & Launch
+    - Select Key-Pairs
+      - Save the pem file securedly
+  - SSH into EC2 instance
+    - Use Putty
+    - Convert .pem to .ppk using PuttyGen
+    - Login to instance using public IP and .ppk file (SSH > Auth)
+  - Security Groups (Details)
+    - Acts like Firewall outside EC2 instance
+    - Controls the inbound and outbound traffic of EC2 instances
+    - If the issue is timeout-related, better check the security group rules
+    - If the issue is 'connection-refused', then its application level issue
+    - EC2 instance and Security Group has Many-To-Many relation
+    - All inbound traffic is blocked by default
+    - All outbound traffic is authorised by default
+    - Traffic from Security Groups can also be allowed instead of specific IPs (Useful in case of load balancers)
+  - Private vs Public vs Elastic IP
+    - Public IP
+      - Accessible to internet
+      - Changes after instance restart
+    - Private IP - Accessible inside private network
+    - Elastic IP
+      - AWS IP to retain across EC2 instance restart
+      - Can Mask failure by remaaping Elastic IP to differnt instances
+  
