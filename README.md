@@ -170,3 +170,22 @@
       - GPU (Present or Not?)
       - Permutations results intomore than 50 instance types
       - Summary : https://ec2instances.info 
+      - R/C/P/G/H/X/I/F/Z/CR - Best in their characteristic
+      - M - Balanced (Good overall, Great in nothing)
+      - T2/T3
+        - OK CPU overall
+        - When Spike in processing, CPU bursts (VERY GOOD processing)
+        - In burst mode, uses "burst credits"
+        - If all credits are used, CPU becomes BAD
+        - If machine stops bursting, credit accumulate over time
+      - T2 Unlimited
+        - Unlimited credits for high cost
+    - EC2 Checklist
+      - SSH to EC2
+      - .pem to .ppk
+      - change permission of .pem
+      - use security group properly
+      - public vs private vs elastic IP
+      - User Data Scripts to customize instance
+      - Custom AMI to enhance OS
+      - EC2 billing is per second (after 60  seconds)
