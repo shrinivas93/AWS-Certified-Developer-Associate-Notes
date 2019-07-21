@@ -92,4 +92,81 @@
     - User Data Script runs with ROOT user
     - Add User Data Script while creating EC2 instance under Advanced Details on 'Configure Instance Details' page
   - EC2 Launch Types
-    - 
+    - On Demand Instances
+      - Short Workload
+      - Predictable Pricing
+      - Pay for what you use (per second billing)
+      - Highest cost
+      - No upfront payment
+      - No long term commitment
+    - Reserved Instances
+      - Long Workload (>= 1 year)
+      - 75% discount compared to On-Demand
+      - Pay upfront for long term commitment
+      - Reserve for 1 - 3 years
+      - Reserve a specific instance type (Eg.: x4-large)
+    - Convertible Reserved Instances
+      - Long Workload with flexible instances
+      - Can change instance type
+      - 54% discount compared to On-Demand
+    - Scheduled Reserved Instances
+      - Launch within reserved time window
+      - Use when you need (Day, Week, Month) (Eg.: Every Sat-Sun)
+    - Spot Instances
+      - Short Workload
+      - Cheap
+      - Can lose instances
+      - Up to 90% discount compared to On-Demand
+      - Get the instance by bidding
+      - Use the instance till bid amount is above the spot price
+      - Price depends on demand and offers
+      - Instance lost withing 2 mins notification after spot price crosses bid amount
+      - Typically used for Batch Jobs, Big Data Analysis which are resilient to failures
+    - Dedicated Instances
+      - No other customer will share hardware
+      - May share hardware with other instance under same account
+    - Dedicated Hosts
+      - Book entire physical server
+      - Control instance placement
+      - Visibility to underlying socket, processor cores, hardware, etc.
+      - Allocated for a 3 year period
+      - Much expensive
+      - Useful in cases of Complicated Licensing model or strict company compliance policies
+  - Other important details
+    - EC2 Pricing (Only if the instance in Running)
+      - Per Hour Pricing depending on
+        - Region (Mumbai)
+        - Instance Type (t2.micro)
+        - Launch Type (On-Demand)
+        - OS (Linux)
+      - Per second billing (after 60 seconds)
+      - Other chargable factors
+        - Storage
+        - Data Transfer
+        - Fixed IP
+        - Load Balancing
+    - AMI (Amazon Machine Images)
+      - Predefined
+        - Ubuntu
+        - Fedora
+        - RedHat
+        - Windows
+        - Etc.
+      - Can be customised using EC2 User Data Scripts
+      - Custom AMIs can be used
+        - Pre-installed packages
+        - Faster Boot time (No User Data Scripts)
+        - Pre installed monitoring and network tools for enterprise
+        - Control maintenance and updates over time
+        - Configure LDAP out-of-the-box
+        - Install application before machine boot on all machines (During auto-scaling)
+        - Someone else's exported AMI
+      - Custom AMIs are region specific
+    - EC2 Instances Characteristics
+      - RAM (Type, Amount, Generation)
+      - CPU (Cores, Type, Make, Frequency, Generation)
+      - I/O (Disk Performance, EBS optimisations)
+      - Network (Bandwidth, Latency)
+      - GPU (Present or Not?)
+      - Permutations results intomore than 50 instance types
+      - Summary : https://ec2instances.info 
