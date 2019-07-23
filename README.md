@@ -199,4 +199,42 @@
     - Stickiness with cookies (Ensures all request from a user session are forwarded to same instance)
     - High availability across zones (if an AZ fails)
     - Seperate public traffic from private traffic
-    
+    - EC2 Load Balancer
+      - Uptime guarantee
+      - AWS handles Upgrades, maintenance, high availability
+      - provides only few configuration
+      - Costs more but very less efforts
+      - integrated with many AWS services
+    - Types of Load balancer (Internal / External)
+      - Classic (V1 - Old - 2009)
+        - Checks for health by hitting API (/health) and expects 200 OK response
+      - Application (V2 - New - 2016) (Recommended)
+        - Layer 7 (HTTP level)
+        - Balance multiple HTTP apps across machines
+        - Balance multiple apps on same machine
+        - Balance based on route in URL
+        - Balance based on Hostname in URL
+        - Great for microservics and cotainer-based apps (Docker, Amaxon ECS)
+        - Port mapping feature to redirect to dynamic port
+        - Can have multiple Target Groups
+        - Each target group can have multiple EC2 instances and a health checkup logic
+        - Load Balancer redirects traffic from HTTP to target group
+        - Stickiness can be enabled at the target group level
+          - stickiness cookie is generated at ALB, not application
+        - ALB supports HTTP/HTTPS
+        - Client IP invisible to server
+        - Client IP is present at 'X-Forwarded-For'
+        - Port at 'X-Forwarded-Port'
+        - Protocol at 'X-Forwarded-Proto'
+      - Network (V2 - New - 2017)
+        - Layer 4 (TCP Traffic)
+        - Handle millions of req/sec
+        - Siupoorts static/elastic IP
+        - Less Latency - 100ms (vs 400ms for ALB)
+        - Used for extreme performance (Not commonly used)
+      - Load Balancers have static hostname
+        - Do not use underlying IP
+      - Load balancers can scale but not instantaneously (Concat AWS for 'warm-up')
+      - NLP can see client IP
+      - If LB can't connect app, check security group
+      - If 503 error, capacity error or no registered target
