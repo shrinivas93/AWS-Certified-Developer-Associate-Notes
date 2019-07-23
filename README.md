@@ -189,3 +189,14 @@
       - User Data Scripts to customize instance
       - Custom AMI to enhance OS
       - EC2 billing is per second (after 60  seconds)
+- Load Balancing & Auto Scaling
+  - Load Balancer
+    - Forwards user traffic to multiple instances
+    - Spreads load across multiple downstream instances
+    - Handle failures of application instances
+    - Regular health checks of instances
+    - SSL termination (No need to have SSL certificates on instances)
+    - Stickiness with cookies (Ensures all request from a user session are forwarded to same instance)
+    - High availability across zones (if an AZ fails)
+    - Seperate public traffic from private traffic
+    
