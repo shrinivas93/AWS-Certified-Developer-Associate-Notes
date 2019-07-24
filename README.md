@@ -274,5 +274,49 @@
     - ASGs are FREE
     - ASG will restart instance if they get terminated for whatever reason
     - ASG terminates instances marked as unhealthy by LC and replaces them by creating new instances
-      
-    
+  - EBS Volume
+    - EC2 instance loses root volume after termination
+    - EBS Volume - network drive to persist data (not physical drive)
+    - Reattach to different instance
+    - Experience little latency
+    - Volumes are AZ specific (to move across AZ, take snapshot)
+    - Get billed for entire capacity
+    - Can increase the capacity later
+    - Can attach multiple EBS vlume to same instance
+    - Volume Types
+      - GP2 (SSD - General purpose)
+      - IO1 (SSD - Highest perf., low latency, high throughput)
+      - ST1 (HDD - Low cost, throughput intensive)
+      - SC1 (HDD - Lowest cost)
+    - EBS Volumes Characteristics
+      - Size
+      - Throughput
+      - IOPS (I/O operations per sec.)
+    - EBS volumes size can be increased (repartition after resize)
+      - Size
+      - IOPS (IO1 Only)
+    - EBS Snapshot
+      - Uses actual used space, not entire volume space
+      - Used for
+        - Backup
+        - Resizing
+        - Change volume type
+        - Encrypt volume
+        - Migration between AZs
+    - EBS Encryption
+      - Data at rest is encrypted
+      - Data in flight is also encrypted
+      - Snapshots are also encrypted
+      - All columes are created from snapshot
+      - Minimal impact on latency
+      - Uses KMS keys (AES-256) for encryption
+      - Copying unencrypted anapshot allows encryption
+    - EBS vs. Instance Store
+      - Some instace dont have Root EBS volume, but has Instance Store
+      - Instance Store is physically attached to instance
+      - Better I/O perf.
+      - Data loss on termination
+      - Can't be resized
+      - Backups to be done by users
+    - EBS backups shouldn't be done durine application in use (I/O intesive)
+    -  Root EBS volumes get terminated on instance termination (this can be disabled)
