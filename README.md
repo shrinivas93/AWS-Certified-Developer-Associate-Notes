@@ -238,3 +238,41 @@
       - NLP can see client IP
       - If LB can't connect app, check security group
       - If 503 error, capacity error or no registered target
+  - Auto Scaling Group
+    - Scale out to match increased load (Add instances)
+    - Scale in to match decreased load (Remove instances)
+    - Define minimum & maximum number of instances for scaling
+    - Automatically register instances
+    - ASG Attributes
+      - Launch Configuration
+        - AMI + Instance Type
+        - EC2 User Data
+        - EBS Volume
+        - Security Group
+        - SSH Key pair
+      - Min Size
+      - Max Size
+      - Initial Capacity
+      - Network & Subnet info
+      - Load Balancer info
+      - Scaling policy
+    - Auto Scaling Alarm
+      - ASG scales based on CloudWatch Alarms
+      - Alarm monitors a metric (Eg: Average CPU)
+      - Metrics are computed for overall ASG instances
+      - Scale based on Alarms
+    - Metrics
+      - Target Average CPU Usage
+      - Numbers of request on ELD per instance
+      - Avg Network In
+      - Avg Network Out
+    - Custom Metrics (Eg. : No. of connected users)
+      - Send custom metric from app to CloudWatch (PutMetric API)
+      - Create CloudWatch alarm to react to high/low values
+      - Use CloudWatch alarm as scaling policy
+    - IAM roles attached to ASG gets assigned to EC2 instances
+    - ASGs are FREE
+    - ASG will restart instance if they get terminated for whatever reason
+    - ASG terminates instances marked as unhealthy by LC and replaces them by creating new instances
+      
+    
