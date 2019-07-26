@@ -2,6 +2,7 @@
 - Regions & Availability Zones
   - Region > Availability Zone (AZ)
 - IAM (Identity & Access Management)
+  - Gloabally accesible service (Not Region or AZ specific)
   - Users
     - Assigned to people
   - Groups
@@ -67,6 +68,7 @@
     - Use Putty
     - Convert .pem to .ppk using PuttyGen
     - Login to instance using public IP and .ppk file (SSH > Auth)
+    - Change permission of .pem file to 0400 on Linux
   - Security Groups (Details)
     - Acts like Firewall outside EC2 instance
     - Controls the inbound and outbound traffic of EC2 instances
@@ -75,7 +77,7 @@
     - EC2 instance and Security Group has Many-To-Many relation
     - All inbound traffic is blocked by default
     - All outbound traffic is authorised by default
-    - Traffic from Security Groups can also be allowed instead of specific IPs (Useful in case of load balancers)
+    - Traffic from Security Groups as a source can also be allowed instead of specific IPs (Useful in case of load balancers)
   - Private vs Public vs Elastic IP
     - Public IP
       - Accessible to internet
