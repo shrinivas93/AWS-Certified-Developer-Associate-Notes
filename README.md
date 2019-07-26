@@ -340,3 +340,68 @@
     - Latency
     - Weighted
   - Prefer Alias over CNAME for AWS resource (better performance)
+- RDS (Relationsal Database Service)
+  - Managed DB service
+  - Uses SQL language
+  - Supported DBs
+    - Postgres
+    - Oracle
+    - MySQL
+    - MariaDB
+    - Microsoft SQL Server
+    - Aurora (AWS Proprietary DB)
+  - Continuos backups and restore
+  - Monitoring dashboards
+  - Read replicas for better performance
+    - Upto 5 read replicas
+    - Within AZ
+    - Cross AZ
+    - Cross Region
+    - Replication is ASYNC (reads are eventually consistent)
+    - Application needs to change the connection string to leverage read replicas
+    - Application needs to add connection string for all replicas
+  - Multi AZ setup (Disaster Recovery)
+    - Replication is SYNC from Master to Standby instance of different AZ
+    - Only one DNS name (Automatic failover to standby)
+    - Increase availability
+    - Failover during loss of AZ, network, instance or storage
+    - No manual intervention in application
+    - Not suitable for scaling
+  - Maintenance windows for upgrades
+  - Scaling capability (vertical & horizontal)
+  - Can't SSH to RDS instances
+  - Backups
+    - Automatically enabled
+    - Daily full snapshot
+    - Capture transaction logs in real time
+    - Can restore to anypoint in time
+    - 7 days retension (increased to 35)
+    - Can manually trigger snapshot
+    - Manual snapshot can be retained for as long as we want
+  - RDS Encryption
+    - Encryption at rest with AWS KMS - AES-256
+    - SSL certificates to encrypt in-flight data
+      - To Enforce SSL
+        - Postgres : rds.force_ssl = 1 in AWS RDS Console
+        - MySQL : GRANT USAGE ON *.* TO 'mysqluser'@'%' REQUIRE SSL;
+      - To Connect using SSL
+        - Provide SSL Trust Cert (download from AWS)
+        - Provide SSL option while connection DB
+  - RDS security
+    - Usually deployed in private subnets, not in public
+    - Uses Security Groups
+    - IAM policies controls who manages RDS
+    - Username/Password can be used to login
+    - IAM users can be used too (MySQL/Aurora)
+  - RDS vs Aurora
+    - Aurora is proprietary technology by AWS (not open-source)
+    - Postgres & MySQL are supported by Aurora (Same Drivers)
+    - AWS cloud optimized
+      - 5x performance over MySQL
+      - 3x performance over Postgres
+    - Storage grows from 10GB to 64TB automatically
+    - Aurora can have 15 replicas (MySQL - 5)
+    - Aurora failover is instantaneous
+    - AUrora is 20% costilier that RDS - more efficient
+    
+    - 
