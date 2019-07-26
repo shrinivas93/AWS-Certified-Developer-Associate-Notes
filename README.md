@@ -320,3 +320,21 @@
       - Backups to be done by users
     - EBS backups shouldn't be done durine application in use (I/O intesive)
     -  Root EBS volumes get terminated on instance termination (this can be disabled)
+- Route 53
+  - Managed DNS
+  - DNS Records
+    - A - URL to IPv4
+    - AAAA - URL to IPv6
+    - CNAME - URL to URL
+    - Alias - URL to AWS Resource
+  - Can use Public Domain (owned or purchased) or private domain resolvable in your VPC
+  - Load Balancing through DNS (client side load balancing)
+  - Limited Health checks
+  - Routing Policy
+    - Simple
+    - Failover
+    - GeoLocation
+    - GeoProximity
+    - Latency
+    - Weighted
+  - Prefer Alias over CNAME for AWS resource (better performance)
