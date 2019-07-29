@@ -402,6 +402,9 @@
     - Storage grows from 10GB to 64TB automatically
     - Aurora can have 15 replicas (MySQL - 5)
     - Aurora failover is instantaneous
-    - AUrora is 20% costilier that RDS - more efficient
-    
-    - 
+    - Aurora is 20% costilier that RDS - more efficient
+- ElasticCache
+  - Managed redis or Memcached
+  - Cache are in-memory databases (high performance, low latency)
+  - Reduces load off of DB for read intensive apps
+  - 
