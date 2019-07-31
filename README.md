@@ -407,4 +407,63 @@
   - Managed redis or Memcached
   - Cache are in-memory databases (high performance, low latency)
   - Reduces load off of DB for read intensive apps
-  - 
+  - Helps to maintain stateless application
+  - Write scaling capability using sharding
+  - Read scaling capability using read replicas
+  - Multi AZ with failover capability
+  - AWS takes care of maintenance, optimization, setup, config, monitoring, failover recovery, backup
+  - Invalidation strategy is decided by application
+  - Can also be used to manage session across multiple application instances
+  - Redis
+    - In-mempry key-value store
+    - Super low latency (sub ms)
+    - Cache survices reboots (persistence)
+    - Handles following
+      - User sessions
+      - Leaderbord
+      - Distributed states
+      - Relieve pressure on DB
+      - Pub / Sub capability for messages
+    - Multi AZ with auto failover
+    - Supports read replica
+  - Memcached
+    - In memory object-store
+    - Doesn't survive reboots
+  - ElasticCache Patterns
+    - Helpful for read-heavy applications
+    - Helpful for compute-intensive workloads
+    - Lazy Loading
+      - Load when necessary
+      - In case of Cache miss, app read from DB and writes to Cache
+      - Only requested data is cached
+      - Node failures are not fatal
+      - 3 round trips in case of cache miss
+      - Stale data can cause a problem. Can be overcomed using TTL (Tiem to live)
+    - Write Through
+      - Add or Update cache when DB is updated
+      - In case of Write, app wites to DB and then to cache
+      - No Cache miss
+      - No stale data
+      - Every write makes 2 calls
+      - Unused data also present is Cache, huge cache
+- AWS VPC
+  - Within Region, VPCs are created
+  - Each VPC contains subnets
+  - Each subnet mapped to an AZ
+  - public subnets and private subnets are present
+  - Can have many subnets per AZ
+  - Public Subnets
+    - Load balancers
+    - Static Websites
+    - Files
+    - Public Authentication Layers
+  - Private Subnets
+    - Web application server
+    - Databases
+  - Public & Private subnets can communicate if in same VPC
+  - Can use VPN connection to connect to VPC
+  - VPC Flow logs allows to monitor traffic within, in & out of VPC
+  - VPC are per Account per Region
+  - Subnets are per VPC per AZ
+  - Some resources can't be deployed in VPC
+  - Can peer VPC (within or across accounts) to make it look like a same network
