@@ -467,3 +467,5 @@
   - Subnets are per VPC per AZ
   - Some resources can't be deployed in VPC
   - Can peer VPC (within or across accounts) to make it look like a same network
+- AWS 3 Tier Architecture
+  ![AWS 3 Tier Architecture Diagram](https://raw.githubusercontent.com/shrinivas93/AWS-Certified-Developer-Associate-Notes/master/aws-3-tier-architecture.png "AWS 3 Tier Architecture Diagram")
