@@ -469,3 +469,31 @@
   - Can peer VPC (within or across accounts) to make it look like a same network
 - AWS 3 Tier Architecture
   ![AWS 3 Tier Architecture Diagram](https://raw.githubusercontent.com/shrinivas93/AWS-Certified-Developer-Associate-Notes/master/aws-3-tier-architecture.png "AWS 3 Tier Architecture Diagram")
+- Amazon S3
+  - Advertised as "infinitely scaling storage"
+  - Many websites use S3 for integration
+  - S3 Buckets is a Global Service
+  - Allows to store objects (files) inside bucket (directory)
+  - Must have globally unique name
+  - Defined at Region-level
+  - Naming Convention
+    - No uppercase
+    - No underscore
+    - 3-63 characters long
+    - Not an IP
+    - Must start with lower-case or number
+  - Objects have key (full path with '/')
+  - No concept of directory (only on UI for navigation)
+  - Max size - 5TB
+  - For larger than 5GB object, must use "multi-part upload"
+  - Object can have Metadata (list of key-value pair)
+  - Object can have Tags (Upto 10 Unicode key-value pair)
+  - Object can use Version ID for versioning
+  - S3 Versioning
+    - Need to enable as bucket level
+    - If file is over-written, version upgrades automatically.
+    - S3 remembers all version
+    - Protects against unintended deletes
+    - Easy rollbacks to previous versions
+    - Takes more space
+    - Unversioned files before enabling versioning have version 'null'
