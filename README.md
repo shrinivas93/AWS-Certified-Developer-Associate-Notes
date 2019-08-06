@@ -520,3 +520,34 @@
       - HTTP endpoints : non encrypted
       - HTTPS endpoints : encrypted
     - Default Encryption can be enabled in Bucket properties
+  - S3 Security
+    - User Based
+      - IAM policies
+        - which API calls should be allowed for a specific user from IAM console
+    - Resource Based
+      - Bucket Policies
+        - Bucket wide rules from S3 console
+        - Allows cross account
+        - JSON based policies
+          - Resources - Buckets & Objects
+          - Actions - Set of API to Allow or Deny
+          - Effect - Allow / Deny
+          - Principal - Account or User to apply the policy
+        - Used to grant public access to the bucket
+        - Force objects to be encrypted at upload
+        - Grant access to another account (cross account)
+        - Use Policy Generator to generate complex JSON policies
+      - Object Access Control List (ACL)
+        - Finer Control
+      - Bucket Access Control List (ACL)
+        - Less Common
+    - Other Security concepts
+      - Networking
+        - Supports VPC Endpoints (without www internet)
+      - Logging & Audit
+        - S3 access logs can be stored in another bucket
+        - access logs should not be stored in the same bucket to avoid recursion
+        - API calls cane be logged in AWS CloudTrail
+      - User Security
+        - MFA can be enabled in versioned buckets to delete objects
+        - Signed URLs : URLs valid for limited time (ex : premium video service for logged in users)
