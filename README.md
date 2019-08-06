@@ -497,3 +497,26 @@
     - Easy rollbacks to previous versions
     - Takes more space
     - Unversioned files before enabling versioning have version 'null'
+  - S3 Encryption
+    - 4 Methods of encryption
+      - SSE-S3 : using keys handled & managed by AWS
+        - Encryption on server-side
+        - AES-256 used
+        - Must set header "x-amz-server-side-encryption" : "AES256"
+      - SSE-KMS : AWS Key Management Service to manage keys
+        - KMS advantages - User Control + Audit trail
+        - Encryption on server-side
+        - Uses KMS CMK (Customer Master Key) to encrypt
+        - Must set header "x-amz-server-side-encryption" : "aws:kms"
+      - SSE-C : Manage your own keys
+        - S3 doesn't store keys
+        - HTTPS must be used
+        - key must be provided in headers for every request
+      - Client Side Encryption
+        - Client library : Amazon S3 Encryption Client (makes east to use)
+        - Client has to Encrypt & Decrypt the data
+        - Customer has to manage the keys and encryption/decryption logic
+    - Encryption in transit (SSL / TLS)
+      - HTTP endpoints : non encrypted
+      - HTTPS endpoints : encrypted
+    - Default Encryption can be enabled in Bucket properties
